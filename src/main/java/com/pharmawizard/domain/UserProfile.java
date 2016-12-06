@@ -49,14 +49,14 @@ public class UserProfile implements Serializable {
 	private List<Comment> comment;
 
 	@OneToOne
-	private Inbox cart;
-	
-	public UserProfile(){
-		
+	private Inbox inbox;
+
+	public UserProfile() {
+
 	}
 
 	public UserProfile(Long idUser, String name, String username, String email, String password, Role role,
-			List<Topic> topics, List<Comment> comment, Inbox cart) {
+			List<Topic> topics, List<Comment> comment, Inbox inbox) {
 		this.idUser = idUser;
 		this.name = name;
 		this.username = username;
@@ -65,7 +65,7 @@ public class UserProfile implements Serializable {
 		this.role = role;
 		this.topics = topics;
 		this.comment = comment;
-		this.cart = cart;
+		this.inbox = inbox;
 	}
 
 	public Long getIdUser() {
@@ -132,12 +132,12 @@ public class UserProfile implements Serializable {
 		this.comment = comment;
 	}
 
-	public Inbox getCart() {
-		return cart;
+	public Inbox getInbox() {
+		return inbox;
 	}
 
-	public void setCart(Inbox cart) {
-		this.cart = cart;
+	public void setCart(Inbox inbox) {
+		this.inbox = inbox;
 	}
 
 }
