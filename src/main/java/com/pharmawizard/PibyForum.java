@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ParmawizardForumApplication {
+public class PibyForum {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ParmawizardForumApplication.class, args);
+		SpringApplication.run(PibyForum.class, args);
 	}
 }

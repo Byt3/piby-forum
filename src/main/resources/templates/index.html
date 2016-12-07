@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<meta charset="ISO-8859-1">
+<title>Piby Forum</title>
+<link rel="stylesheet" href="/main.css" />
+</head>
+<body>
+
+	<h1>PW Spring Boot Course</h1>
+
+
+	<table>
+		<thead>
+			<tr>
+				<th>Author</th>
+				<th>Title</th>
+				<th>Date</th>
+				<th>Views</th>
+				<th>Last Comment</th>
+				<th>Category</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr th:each="topic : ${page.content}">
+				<td th:text="${topic.user}" />
+				<td th:text="${topic.title}" />
+				<td th:text="${topic.date}" />
+				<td th:text="${topic.views}" />
+				<td th:text="${topic.lastComment}" />
+				<td th:text="${topic.category" />
+
+				<td></td>
+
+			</tr>
+
+		</tbody>
+
+	</table>
+
+
+
+</body>
+</html>
