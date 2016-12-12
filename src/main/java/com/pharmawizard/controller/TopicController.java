@@ -23,14 +23,6 @@ public class TopicController {
 	public TopicController(TopicRepository topicRepository) {
 		this.topicRepository = topicRepository;
 	}
-	
-	
-	@RequestMapping(value = "/")
-	public String index(Model model, Pageable pageable) {
-		final Page<Topic> topic = topicRepository.findAll(pageable);
-		model.addAttribute("topic", topic);
-		return "index.html";
-	}
 
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public Topic createTopic(Topic topic) {

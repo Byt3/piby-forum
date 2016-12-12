@@ -57,7 +57,6 @@ public class Topic implements Serializable {
 
 	public Topic(Long idTopic, String title, String date, Long views, String lastComment, UserProfile user,
 			List<Comment> comment, Category category) {
-		super();
 		this.idTopic = idTopic;
 		this.title = title;
 		this.date = date;
@@ -66,6 +65,12 @@ public class Topic implements Serializable {
 		this.user = user;
 		this.comment = comment;
 		this.category = category;
+	}
+
+	public Topic(Category category, UserProfile user) {
+		this.category = category;
+		this.user = user;
+
 	}
 
 	public Long getIdTopic() {

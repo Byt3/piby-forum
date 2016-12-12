@@ -2,44 +2,141 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="ISO-8859-1"></meta>
 <title>Piby Forum</title>
 <link rel="stylesheet" href="/main.css" />
 </head>
 <body>
 
-	<h1>PW Spring Boot Course</h1>
+
+<div align="center">
+
+		<h1>USERS</h1>
+	</div>
+
+	<form method="get" th:action="@{/api/userProfiles}">
+		<div align="center">
+			<table border="1" cellpadding="5">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Name</th>
+						<th>Username</th>
+						<th>Email</th>
+						<th>Password</th>
+						<th>Role</th>
+					</tr>
+				</thead>
+				<tbody>
+	    
+					<tr th:each="user : ${user.content}">
+						<td th:text="${user.idUser}"/>
+						<td th:text="${user.name}" />
+						<td th:text="${user.username}" />
+						<td th:text="${user.email}" />
+						<td th:text="${user.password}" />
+						<td th:text="${user.role.userProfileType}" />
+					</tr>
+
+				</tbody>
+
+			</table>
+		</div>
+	</form>
 
 
-	<table>
-		<thead>
-			<tr>
-				<th>Author</th>
-				<th>Title</th>
-				<th>Date</th>
-				<th>Views</th>
-				<th>Last Comment</th>
-				<th>Category</th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
 
-			<tr th:each="topic : ${page.content}">
-				<td th:text="${topic.user}" />
-				<td th:text="${topic.title}" />
-				<td th:text="${topic.date}" />
-				<td th:text="${topic.views}" />
-				<td th:text="${topic.lastComment}" />
-				<td th:text="${topic.category" />
+	<div align="center">
 
-				<td></td>
+		<h1>TOPICS</h1>
+	</div>
 
-			</tr>
+	<form method="get" th:action="@{/api/topics}">
+		<div align="center">
+			<table border="1" cellpadding="5">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Author</th>
+						<th>Title</th>
+						<th>Date</th>
+						<th>Views</th>
+						<th>Last Comment</th>
+						<th>Category</th>
+					</tr>
+				</thead>
+				<tbody>
+	    
+					<tr th:each="topic : ${topic.content}">
+						<td th:text="${topic.idTopic}"/>
+						<td th:text="${topic.user.username}" />
+						<td th:text="${topic.title}" />
+						<td th:text="${topic.date}" />
+						<td th:text="${topic.views}" />
+						<td th:text="${topic.lastComment}" />
+						<td th:text="${topic.category.name}" />
+					</tr>
 
-		</tbody>
+				</tbody>
 
-	</table>
+			</table>
+		</div>
+	</form>
+	
+	<div align="center">
+
+		<h1>COMMENTS</h1>
+	</div>
+
+	<form method="get" th:action="@{/api/comments}">
+		<div align="center">
+			<table border="1" cellpadding="5">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Author</th>
+						<th>Text</th>
+						<th>Date Created</th>
+						<th>Updated Date</th>
+						<th>Edited By</th>
+						<th>Topic</th>
+					</tr>
+				</thead>
+				<tbody>
+	    
+					<tr th:each="comment : ${comment.content}">
+						<td th:text="${comment.idComment}"/>
+						<td th:text="${comment.user.username}" />
+						<td th:text="${comment.text}" />
+						<td th:text="${comment.date}" />
+						<td th:text="${comment.updateDate}" />
+						<td th:text="${comment.editedBy}" />
+						<td th:text="${comment.topic.idTopic}" />
+					</tr>
+
+				</tbody>
+
+			</table>
+		</div>
+	</form>
+	
+	
+	
+
+<!-- 	<form th:action="@/topic/create" method="post" class="create"> -->
+<!-- 		<p> -->
+<!-- 			<input type="user" name="user" placeholder="Author"></input> -->
+<!-- 			<input type="title" name="title" placeholder="Title"></input> -->
+<!-- 			 <input type="date" name="date" placeholder="Date"> </input> -->
+<!-- 			 <input type="views" name="views" placeholder="Views"> </input> -->
+<!-- 			 <input type="lastComment" name="lastComment" placeholder="Last Comment"> </input> -->
+<!-- 			 <input type="category" name="category" placeholder="Category"></input> <input type="submit" value="create"></input> -->
+<!-- 		</p> -->
+<!-- 		<p> -->
+<!-- 			<input type="submit" name="Create Topic"></input> -->
+<!-- 		</p> -->
+
+<!-- 	</form> -->
 
 
 
